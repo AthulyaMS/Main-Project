@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Edit Profile</title>
+  </head>
+  <body>
+    <h1>Welcome, {{username}}</h1>
+    <!-- <p>access token:{{access_token}}</p> -->
+      <a href="/updatepassword">Change password</a>
+      <!-- <form method="POST" action="/delete"> -->
+        <form method="POST" action="{{url_for('delete') }}">
+        <input type="hidden" name="username" value="{{ username }}">
+        <button type="submit">Delete Profile</button>
+      </form >
+      <a href="{{url_for('upload_file',access_token=access_token)}}">Upload Csv for sentiment_analysis</a>
+      
+      
+   
+  </body>
+</html>

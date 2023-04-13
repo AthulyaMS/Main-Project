@@ -1,0 +1,97 @@
+
+<!-- 
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>Signup</title>
+</head>
+<body>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul>
+			{% for message in messages %}
+				<li>{{ message }}</li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+
+	<h1>Signup Form</h1>
+
+	<form method="POST" action="{{ url_for('signup') }}">
+		{{ form.csrf_token }}
+
+		<label for="username">Username:</label>
+		<input type="text" name="username" id="username" required>
+		<br><br>
+
+		<label for="email">Email:</label>
+		<input type="email" name="email" id="email" required>
+		<br><br>
+
+		<label for="password">Password:</label>
+		<input type="password" name="password" id="password" required>
+		<br><br>
+
+		<label for="place">Place:</label>
+		<input type="text" name="place" id="place" required>
+		<br><br>
+
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>   -->
+
+
+
+
+ <!DOCTYPE html>
+<html>
+  <head>
+    <title>Signup Form</title>
+  </head>
+  <body>
+    <h1>Signup Form</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form action="{{ url_for('signup') }}" method="post">
+      {{ form.csrf_token }}
+      <label for="username">Username:</label>
+      {{ form.username(class="form-control") }}
+      {% for error in form.username.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+      <br><br>
+      
+      <label for="email">Email:</label>
+      {{ form.email(class="form-control") }}
+      {% for error in form.email.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+      <br><br>
+      
+      <label for="password">Password:</label>
+      {{ form.password(class="form-control") }}
+      {% for error in form.password.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+      <br><br>
+      
+      <label for="place">Place:</label>
+      {{ form.place(class="form-control") }}
+      {% for error in form.place.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+      <br><br>
+      
+      {{ form.submit(class="btn btn-primary") }}
+    </form>
+  </body>
+</html> 

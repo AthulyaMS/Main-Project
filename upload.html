@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload File</title>
+</head>
+<body>
+	<h1>Upload Csv For sentiment_analysis</h1>
+	<form method="POST" action="/uploadfile" enctype="multipart/form-data">
+		<!-- <label for="token">Token:</label> -->
+		<input type="hidden" id="token" name="token" value="{{token}}" ><br><br>
+		<label for="file">CSV File:</label>
+		<input type="file" id="file" name="file" required><br><br>
+		<input type="submit" value="Upload">
+	</form>
+	<!-- <a href="{{url_for('detect_status')}}">Check Status</a> -->
+	<!-- <a href="/display">Display CSV</a> -->
+	
+       
+      
+</body>
+</html>

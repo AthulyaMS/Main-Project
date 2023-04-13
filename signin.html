@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Signin{% endblock %}
+
+{% block content %}
+    <h1>Signin</h1>
+    <form method="POST">
+        {{ form.csrf_token }}
+        {{ form.username.label }} {{ form.username() }} <br>
+        {{ form.password.label }} {{ form.password() }} <br>
+        {{ form.submit() }}
+    </form>
+    
+    
+    
+{% endblock %}

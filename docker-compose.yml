@@ -1,0 +1,46 @@
+# version: '3'
+# services:
+#   app:
+#     build: .
+#     image: fastapi1
+#     ports:
+#       - "8000:8000"
+      
+#     depends_on:
+#       - db
+#     environment:
+#       DATABASE_URL: "postgresql://uxfgsolyzhldptcqama4:WUm45xV9KWJlS8anopxZFiJoyxzMTO@b0b9ufcxpbwb4l1bkueh-postgresql.services.clever-cloud.com:5432/b0b9ufcxpbwb4l1bkueh"
+#   db:
+#     image: postgres
+#     restart: always
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: postgres
+#       POSTGRES_DB: mydatabase
+#     volumes:
+#       - dbdata:/var/lib/postgresql/data/
+# volumes:
+#   dbdata:
+
+
+ services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      DATABASE_URL: "postgresql://uxfgsolyzhldptcqama4:WUm45xV9KWJlS8anopxZFiJoyxzMTO@b0b9ufcxpbwb4l1bkueh-postgresql.services.clever-cloud.com:5432/b0b9ufcxpbwb4l1bkueh"
+    volumes:
+      - dbdata:/var/lib/postgresql/data/
+  app_fastapi:
+    image: fastapi6
+    restart: always 
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: "postgresql://uxfgsolyzhldptcqama4:WUm45xV9KWJlS8anopxZFiJoyxzMTO@b0b9ufcxpbwb4l1bkueh-postgresql.services.clever-cloud.com:5432/b0b9ufcxpbwb4l1bkueh"
+ volumes:
+   dbdata:
+
+    

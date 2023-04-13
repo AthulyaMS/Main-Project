@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <p>status:{{status}}</p>
+    <title>Analysis Table</title>
+    <a href="{{url_for('download',id_d=id_d)}}">Download CSV</a>
+      
+  </head>
+  <body>
+    <h1>Analysis Table</h1>
+    <table style="width:100%">
+      <tr>   
+        <th>Product Name</th>
+        <th>Reviews</th>
+        <th>Predicted Sentiment</th>
+      </tr>
+      {% for item in dbdict %}
+      <tr style="height:50px">
+        <td>{{item['Product Name']}}</td> 
+        <td>{{item['Reviews']}}</td>
+      
+        <td>{{item['sentimental_analysis']}}</td>         
+      </tr>
+      {% endfor %}
+      </table>
+  </body>
+</html>
